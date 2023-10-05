@@ -2,6 +2,8 @@ package com.garibaldy.microservicebook.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -14,6 +16,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "GENEREROS")
+@AttributeOverrides(column = @Column(name = "ID_GENERO"), name = "id")
 public class Genero {
 
     @Id

@@ -3,6 +3,7 @@ package com.garibaldy.microservicebook.model;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
+import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "LIBROS")
+@AttributeOverride(column = @Column(name = "ID_LIBRO"), name = "id")
 public class Libro {
 
     @Id
@@ -44,11 +46,11 @@ public class Libro {
     private LocalDateTime fechaCracion;
 
     @ManyToMany
-    @JoinTable(name = "LIBROS_GENEROS", joinColumns = @JoinColumn(name = "ID_LIBRO", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ID_GENERO", referencedColumnName = "ID_GENERO"))
+    @JoinTable(name = "LIBROS_GENEROS", joinColumns = @JoinColumn(name = "ID_LIBRO", referencedColumnName = "ID_LIBRO"), inverseJoinColumns = @JoinColumn(name = "ID_GENERO", referencedColumnName = "ID_GENERO"))
     private Collection<Genero> generos;
 
     @ManyToMany
-    @JoinTable(name = "LIBROS_AUTORES", joinColumns = @JoinColumn(name = "ID_LIBRO", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ID_AUTOR", referencedColumnName = "id"))
+    @JoinTable(name = "LIBROS_AUTORES", joinColumns = @JoinColumn(name = "ID_LIBRO", referencedColumnName = "ID_LIBRO"), inverseJoinColumns = @JoinColumn(name = "ID_AUTOR", referencedColumnName = "ID_AUTOR"))
     private Collection<Autor> autores;
 
 }

@@ -3,6 +3,7 @@ package com.garibaldy.microservicebook.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "AUTORES")
+@AttributeOverride(column = @Column(name = "ID_AUTOR"), name = "id")
 public class Autor {
 
     @Id
@@ -31,7 +33,7 @@ public class Autor {
     @Column(name = "NACIONALIDAD", length = 50, nullable = false)
     private String nacionalidad;
 
-    @Column(name = "FECHA_NACIMIENTO")
+    @Column(name = "FECHA_NACIMIENTO", nullable = false)
     private LocalDate fechaNacimiento;
 
     @Column(name = "FECHA_CREACION", nullable = false)
