@@ -36,7 +36,7 @@ public class Author {
     private String nationality;
 
     @Column(name = "FECHA_NACIMIENTO", nullable = false)
-    private LocalDate birthDate;
+    private LocalDate birthDay;
 
     @Column(name = "FECHA_CREACION", nullable = false)
     private LocalDateTime createDate;
@@ -44,6 +44,7 @@ public class Author {
     @PrePersist
     public void persist() {
         this.createDate = LocalDateTime.now();
+        this.fullName = name + " " + lastName;
     }
 
 }

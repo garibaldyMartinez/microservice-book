@@ -2,7 +2,6 @@ package com.garibaldy.microservicebook.controller;
 
 import java.util.Optional;
 
-import org.modelmapper.internal.util.Objects;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,6 @@ import com.garibaldy.microservicebook.config.validator.GenreValidator;
 import com.garibaldy.microservicebook.request.GenreRequest;
 import com.garibaldy.microservicebook.service.GenreService;
 import com.garibaldy.microservicebook.utils.Exceptions.ApiBravoEcxeption;
-import com.garibaldy.microservicebook.utils.Exceptions.ApiBravoNotFound;
 import com.garibaldy.microservicebook.utils.Exceptions.ApiBravoUnprocessableEntity;
 
 import jakarta.validation.Valid;
@@ -60,6 +58,7 @@ public class GenreController {
     @PutMapping(path = "/{genderId}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> updateGenre(@Valid @RequestBody GenreRequest request,
             @PathVariable Long genderId) throws ApiBravoUnprocessableEntity, ApiBravoEcxeption {
+        this.validator.validate(request);
         return new ResponseEntity<>(this.generoService.update(request, genderId), HttpStatus.OK);
     }
 
