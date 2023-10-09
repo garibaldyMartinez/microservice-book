@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.garibaldy.microservicebook.dto.GenreDTO;
 import com.garibaldy.microservicebook.model.Genre;
-import com.garibaldy.microservicebook.model.repository.GenreRepository;
+import com.garibaldy.microservicebook.repository.GenreRepository;
 import com.garibaldy.microservicebook.request.GenreRequest;
 import com.garibaldy.microservicebook.utils.Exceptions.ApiBravoEcxeption;
 import com.garibaldy.microservicebook.utils.helpers.MHelpers;

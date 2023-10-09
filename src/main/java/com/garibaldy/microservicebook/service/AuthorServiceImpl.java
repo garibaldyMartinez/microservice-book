@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.garibaldy.microservicebook.model.Author;
-import com.garibaldy.microservicebook.model.repository.AuthorRepository;
+import com.garibaldy.microservicebook.repository.AuthorRepository;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {

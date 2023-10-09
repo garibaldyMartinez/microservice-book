@@ -1,4 +1,4 @@
-package com.garibaldy.microservicebook.model.repository;
+package com.garibaldy.microservicebook.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
