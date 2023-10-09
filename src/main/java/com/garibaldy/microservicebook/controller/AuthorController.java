@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.garibaldy.microservicebook.config.validator.Authorvalidator;
-import com.garibaldy.microservicebook.config.validator.GenreValidator;
 import com.garibaldy.microservicebook.request.AuthorRequest;
 import com.garibaldy.microservicebook.service.AuthorService;
 import com.garibaldy.microservicebook.utils.Exceptions.ApiBravoEcxeption;

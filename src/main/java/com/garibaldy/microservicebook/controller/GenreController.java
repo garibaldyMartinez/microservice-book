@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("api/gender")
+@RequestMapping("api/genre")
 @AllArgsConstructor
 public class GenreController {
 

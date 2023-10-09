@@ -2,9 +2,12 @@ package com.garibaldy.microservicebook.config.validator;
 
 import java.util.Objects;
 
+import org.springframework.stereotype.Service;
+
 import com.garibaldy.microservicebook.request.AuthorRequest;
 import com.garibaldy.microservicebook.utils.Exceptions.ApiBravoUnprocessableEntity;
 
+@Service
 public class AuthorvalidatorImpl implements Authorvalidator {
 
     @Override

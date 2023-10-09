@@ -3,11 +3,14 @@ package com.garibaldy.microservicebook.utils.helpers;
 import org.modelmapper.ModelMapper;
 
 import com.garibaldy.microservicebook.dto.AuthorDTO;
+import com.garibaldy.microservicebook.dto.BookDTO;
 import com.garibaldy.microservicebook.dto.GenreDTO;
 import com.garibaldy.microservicebook.model.Author;
+import com.garibaldy.microservicebook.model.Book;
 import com.garibaldy.microservicebook.model.Genre;
 import com.garibaldy.microservicebook.model.Genretype;
 import com.garibaldy.microservicebook.request.AuthorRequest;
+import com.garibaldy.microservicebook.request.BookRequest;
 import com.garibaldy.microservicebook.request.GenreRequest;
 
 public class MHelpers {
@@ -19,19 +22,20 @@ public class MHelpers {
         return new ModelMapper();
     }
 
-    // This method is responsible for converting an object of type Entity to
+    // This method is responsible for converting an object of type Entity Genre to
     // GenreDTO
     public static GenreDTO convertToGenreDTO(final Genre genre) {
         return modelMapper().map(genre, GenreDTO.class);
     }
 
-    // This method is responsible for converting an object of type DTO to Entity
+    // This method is responsible for converting an object of type GenreDTO to
+    // Entity Genre
     public static Genre convertToGenre(final GenreDTO genre) {
         return modelMapper().map(genre, Genre.class);
     }
 
     // This method is responsible for converting an object of type GenreRequest to
-    // Entity
+    // Entity Genre
     public static Genre convertToGenreRequest(final GenreRequest request) {
         return modelMapper().map(request, Genre.class);
     }
@@ -43,14 +47,14 @@ public class MHelpers {
         return genre;
     }
 
-    // This method is responsible for converting an object of type Entity to
+    // This method is responsible for converting an object of type Entity Author to
     // AuthorDTO
     public static AuthorDTO convertToAuthorDTO(final Author author) {
         return modelMapper().map(author, AuthorDTO.class);
     }
 
     // This method is responsible for converting an object of type AuthorRequest to
-    // Entity
+    // Entity Author
     public static Author convertToAuthorRequest(final AuthorRequest request) {
         return modelMapper().map(request, Author.class);
     }
@@ -60,6 +64,28 @@ public class MHelpers {
         author.setLastName(request.getLastName());
         author.setNationality(request.getNationality());
         author.setBirthDay(request.getBirthDay());
+    }
+
+    // This method is responsible for converting an object of type Entity Book to
+    // BookDTO
+    public static BookDTO convertToBookDTO(final Book book) {
+        return modelMapper().map(book, BookDTO.class);
+    }
+
+    // This method is responsible for converting an object of type BookRequest to
+    // Entity Book
+    public static Book convertToBookRequest(final BookRequest request) {
+        return modelMapper().map(request, Book.class);
+    }
+
+    public static void copyPropertiesBook(BookRequest request, Book book) {
+        book.setTitle(request.getTitle());
+        book.setDescription(request.getDescription());
+        book.setQuantity(request.getQuantity());
+        book.setEditorName(request.getEditorName());
+        book.setPublicatioDate(request.getPublicatioDate());
+        book.setAuthors(request.getAuthors());
+        book.setGenders(request.getGenders());
     }
 
     public static Genretype convertToGenre(String description) {

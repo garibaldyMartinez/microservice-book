@@ -3,11 +3,14 @@ package com.garibaldy.microservicebook.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import java.util.List;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -40,6 +43,9 @@ public class Author {
 
     @Column(name = "FECHA_CREACION", nullable = false)
     private LocalDateTime createDate;
+
+    @ManyToMany(mappedBy = "authors")
+    private List<Book> books;
 
     @PrePersist
     public void persist() {

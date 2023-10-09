@@ -1,5 +1,6 @@
 package com.garibaldy.microservicebook.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
@@ -41,7 +42,7 @@ public class Book {
     private String editorName;
 
     @Column(name = "FECHA_PUBLICACION")
-    private LocalDateTime datePublication;
+    private LocalDate publicatioDate;
 
     @Column(name = "FECHA_CREACION")
     private LocalDateTime createDate;
@@ -57,6 +58,7 @@ public class Book {
     @PrePersist
     public void persist() {
         this.createDate = LocalDateTime.now();
+        this.available = Boolean.TRUE;
     }
 
 }
